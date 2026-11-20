@@ -1,0 +1,4 @@
+# Blokir akses langsung lewat browser ke berkas sensitif (Apache 2.4 / XAMPP)
+<FilesMatch "^(\.env.*|.*\.sql)$">
+    Require all denied
+</FilesMatch>

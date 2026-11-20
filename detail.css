@@ -1,0 +1,52 @@
+/* detail.css - halaman detail menu */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { min-height: 100vh; }
+.dt-wrap { max-width: 1240px; margin: 0 auto; padding: 24px 24px 56px; }
+.dt-kembali { display: inline-block; margin: 6px 0 16px 4px; color: var(--teks-redup); font-size: 14px; font-weight: 500; text-decoration: none; }
+.dt-kembali:hover { color: var(--hutan); }
+.dt-wrap .flash { margin-bottom: 16px; }
+
+.dt-panel {
+    display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: stretch;
+    background: #fff; border-radius: 36px; padding: 20px; box-shadow: var(--bayang);
+}
+.dt-foto { position: relative; border-radius: 28px; overflow: hidden; background: var(--kartu); min-height: 420px; }
+.dt-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.dt-status {
+    position: absolute; top: 16px; left: 16px; padding: 6px 14px; border-radius: 999px;
+    background: rgba(255, 255, 255, .95); font-size: 13px; font-weight: 600; color: var(--zamrud-tua);
+}
+.dt-status.habis { color: var(--merah); }
+
+.dt-info { padding: 28px 28px 20px 0; display: flex; flex-direction: column; }
+.dt-kat { font-size: 14px; color: var(--teks-redup); }
+.dt-nama { font-size: clamp(30px, 3.4vw, 46px); font-weight: 700; line-height: 1.1; margin: 6px 0 12px; }
+.dt-harga { font-size: 30px; font-weight: 700; color: var(--hutan); margin-bottom: 18px; }
+.dt-desk { font-size: 16px; line-height: 1.7; color: var(--teks-redup); max-width: 52ch; margin-bottom: 28px; }
+
+.dt-pesan { margin: 0; border-radius: 20px; padding: 14px 18px 14px 22px; font-size: 15px; }
+.dt-hint { font-size: 13px; color: #8aa096; margin: 10px 4px 0; }
+.dt-habis { padding: 16px 20px; border-radius: 18px; background: #fdeaea; color: var(--merah); font-weight: 500; }
+.dt-aksi { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.dt-hapus {
+    padding: 13px 22px; border-radius: 14px; border: 2px solid #f1c5c5; background: #fff; color: var(--merah);
+    font: 600 15px var(--font); cursor: pointer;
+}
+.dt-hapus:hover { background: #fdeaea; }
+
+.dt-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 28px; }
+.dt-meta > div { flex: 1 1 150px; background: var(--kartu); border-radius: 18px; padding: 14px 18px; }
+.dt-meta dt { font-size: 12px; color: var(--teks-redup); margin-bottom: 2px; }
+.dt-meta dd { font-size: 15px; font-weight: 600; color: var(--hutan); }
+
+.mk-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    background: var(--hutan); color: #fff; font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .dt-wrap { padding: 16px 14px 48px; }
+    .dt-panel { grid-template-columns: 1fr; gap: 8px; border-radius: 28px; }
+    .dt-foto { min-height: 280px; }
+    .dt-info { padding: 20px 10px 12px; }
+}

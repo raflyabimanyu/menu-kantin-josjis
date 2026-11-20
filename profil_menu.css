@@ -1,0 +1,54 @@
+/* profil_menu.css - avatar & dropdown akun di navbar */
+.pm { position: relative; display: inline-block; font-family: var(--font, 'Segoe UI', Tahoma, sans-serif); color: var(--teks, #0d2a20); }
+.pm-trigger {
+    display: flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; padding: 0;
+    border: 2px solid transparent; border-radius: 50%;
+    background: transparent; cursor: pointer;
+    transition: border-color .15s, box-shadow .15s;
+}
+.pm-trigger:hover, .pm-trigger[aria-expanded="true"] { border-color: #34a77b; box-shadow: 0 0 0 3px rgba(52, 167, 123, .2); }
+.pm-trigger:focus-visible { outline: 3px solid rgba(52, 167, 123, .5); outline-offset: 2px; }
+
+.pm-avatar {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 50%; overflow: hidden; flex: none;
+    background: linear-gradient(205deg, #3fe0d0 0%, #2fb184 55%, #2e7d32 100%);
+    color: #fff; font-weight: 700; font-size: 15px; user-select: none;
+}
+.pm-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pm-avatar-besar { width: 46px; height: 46px; font-size: 20px; }
+
+.pm-menu {
+    position: absolute; right: 0; top: calc(100% + 10px);
+    width: 290px; max-width: calc(100vw - 24px);
+    background: #fff; color: #1a1a1a; text-align: left;
+    border-radius: 22px; padding: 8px;
+    box-shadow: 0 18px 48px rgba(11, 59, 43, .22), 0 0 0 1px rgba(11, 59, 43, .05);
+    z-index: 1100;
+    opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.98); transform-origin: top right;
+    transition: opacity .16s ease, transform .16s ease, visibility 0s linear .16s;
+}
+.pm-menu.buka { opacity: 1; visibility: visible; transform: none; transition: opacity .16s ease, transform .16s ease, visibility 0s; }
+
+.pm-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px; }
+.pm-identitas { min-width: 0; }
+.pm-nama { font-weight: 600; color: var(--hutan, #0b3b2b); font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pm-user { font-size: 13px; color: #777; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pm-sep { height: 1px; background: #e6eee9; margin: 6px 8px; }
+
+.pm-menu form { margin: 0; }
+.pm-item {
+    display: flex; align-items: center; gap: 14px;
+    width: 100%; padding: 10px 16px;
+    border: none; background: none; text-align: left; cursor: pointer; border-radius: 14px;
+    font: inherit; font-size: 14px; color: var(--teks, #0d2a20); text-decoration: none;
+}
+.pm-item svg { width: 20px; height: 20px; flex: none; color: #555; }
+.pm-item:hover, .pm-item:focus-visible { background: var(--kartu, #edf3ef); outline: none; }
+.pm-keluar:hover { background: #fdeeee; color: #c62828; }
+.pm-keluar:hover svg { color: #c62828; }
+
+@media (prefers-reduced-motion: reduce) {
+    .pm-menu, .pm-menu.buka { transition-duration: .01s; }
+}

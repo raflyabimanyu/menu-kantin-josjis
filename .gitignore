@@ -1,0 +1,12 @@
+PENGUJIAN.docx
+*.docx
+*.tmp
+.DS_Store
+Thumbs.db
+# Konfigurasi & kredensial lokal (jangan di-commit)
+.env
+
+# Foto profil yang diunggah pengguna (folder dan aturan .htaccess-nya tetap di-commit)
+uploads/profil/*
+!uploads/profil/.htaccess
+!uploads/profil/.gitkeep
