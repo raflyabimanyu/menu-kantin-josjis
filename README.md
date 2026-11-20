@@ -72,4 +72,4 @@ http://localhost/<nama_folder>/login.php
 
 ---
 
-*Menu Kantin 2026 — Dibuat untuk Tugas Pemrograman Web I*
+*Menu Kantin Josjis — Dibuat untuk Tugas Pemrograman Web I*
