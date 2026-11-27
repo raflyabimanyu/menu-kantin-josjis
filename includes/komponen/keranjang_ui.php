@@ -6,7 +6,7 @@
  */
 
 if (($_SESSION['peran'] ?? '') === 'anggota'):
-    require_once __DIR__ . '/fungsi_pesanan.php';
+    require_once __DIR__ . '/../fungsi_pesanan.php';
 
     // Hanya menu yang BISA dipesan. Angka stok tidak ikut dikirim ke browser.
     $hasil_menu = $db->query(
@@ -70,5 +70,5 @@ if (($_SESSION['peran'] ?? '') === 'anggota'):
     </form>
 
     <script>window.KERANJANG = <?= $json_keranjang ?>;</script>
-    <script src="keranjang.js?v=<?= (int) @filemtime(__DIR__ . '/keranjang.js') ?>"></script>
+    <script src="assets/js/keranjang.js?v=<?= (int) @filemtime(__DIR__ . '/../../assets/js/keranjang.js') ?>"></script>
 <?php endif; ?>

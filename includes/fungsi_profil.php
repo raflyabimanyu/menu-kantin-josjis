@@ -4,7 +4,7 @@
  * Validasi & penyimpanan data profil pengguna (username, bio, foto) + URL foto untuk tampilan.
  */
 
-const FOTO_PROFIL_DIR = __DIR__ . '/uploads/profil/';
+const FOTO_PROFIL_DIR = __DIR__ . '/../uploads/profil/';
 const FOTO_PROFIL_MAKS_BYTE = 2 * 1024 * 1024; // 2 MB
 const BIO_MAKS = 200;
 

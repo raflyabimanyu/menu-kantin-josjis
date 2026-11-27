@@ -4,10 +4,10 @@
  * Halaman utama yang menampilkan semua menu kantin
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
-require_once 'validasi.php';
-require_once 'fungsi_pesanan.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
+require_once __DIR__ . '/includes/validasi.php';
+require_once __DIR__ . '/includes/fungsi_pesanan.php';
 
 // Wajib login untuk mengakses halaman ini
 wajibLogin();
@@ -97,12 +97,12 @@ $nb_aktif = 'beranda';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Menu - Menu Kantin</title>
-    <link rel="icon" href="images/logo.png">
-    <link rel="stylesheet" href="beranda.css?v=<?= (int) @filemtime(__DIR__ . '/beranda.css') ?>">
-    <link rel="stylesheet" href="keranjang.css?v=<?= (int) @filemtime(__DIR__ . '/keranjang.css') ?>">
+    <link rel="icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="assets/css/beranda.css?v=<?= (int) @filemtime(__DIR__ . '/assets/css/beranda.css') ?>">
+    <link rel="stylesheet" href="assets/css/keranjang.css?v=<?= (int) @filemtime(__DIR__ . '/assets/css/keranjang.css') ?>">
 </head>
 <body>
-    <?php include __DIR__ . '/komponen_navbar.php'; ?>
+    <?php include __DIR__ . '/includes/komponen/komponen_navbar.php'; ?>
 
     <!-- Hero -->
     <section class="hero-k">
@@ -130,7 +130,7 @@ $nb_aktif = 'beranda';
                     <?php foreach (array_slice($semua_menu, 0, 3) as $mh): ?>
                         <a href="detail.php?id=<?= (int) $mh['id'] ?>" tabindex="-1">
                             <img src="<?= e(ambilGambarMenu($mh['id'], $mh['kategori'], $mh['gambar'] ?? null)) ?>" alt=""
-                                 onerror="this.onerror=null;this.src='images/nasi_goreng.png';">
+                                 onerror="this.onerror=null;this.src='assets/images/nasi_goreng.png';">
                             <span><?= e($mh['nama_menu']) ?> · <?= formatRupiah($mh['harga']) ?></span>
                         </a>
                     <?php endforeach; ?>
@@ -154,7 +154,7 @@ $nb_aktif = 'beranda';
                     <span class="kat-jumlah"><?= (int) ($info_kategori[$kode]['jumlah'] ?? 0) ?> menu</span>
                     <?php if (isset($info_kategori[$kode])): ?>
                         <img src="<?= e($info_kategori[$kode]['gambar']) ?>" alt="" loading="lazy"
-                             onerror="this.onerror=null;this.src='images/nasi_goreng.png';">
+                             onerror="this.onerror=null;this.src='assets/images/nasi_goreng.png';">
                     <?php endif; ?>
                 </a>
             <?php endforeach; ?>
@@ -190,7 +190,7 @@ $nb_aktif = 'beranda';
                                 <img src="<?= e(ambilGambarMenu($menu['id'], $menu['kategori'], $menu['gambar'] ?? null)) ?>?v=<?= time() ?>"
                                      alt="<?= e($menu['nama_menu']) ?>"
                                      loading="lazy"
-                                     onerror="this.onerror=null;this.src='images/nasi_goreng.png';">
+                                     onerror="this.onerror=null;this.src='assets/images/nasi_goreng.png';">
                                 <span class="mk-status <?= $bisa_dipesan ? '' : 'habis' ?>"><?= $bisa_dipesan ? 'Tersedia' : 'Habis' ?></span>
                             </div>
                             <div class="mk-isi">
@@ -270,6 +270,6 @@ $nb_aktif = 'beranda';
         document.getElementById('searchInput').addEventListener('change', filterMenu);
     </script>
 
-    <?php include __DIR__ . '/keranjang_ui.php'; ?>
+    <?php include __DIR__ . '/includes/komponen/keranjang_ui.php'; ?>
 </body>
 </html>

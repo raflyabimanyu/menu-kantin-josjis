@@ -4,9 +4,9 @@
  * Halaman pendaftaran akun baru
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
-require_once 'validasi.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
+require_once __DIR__ . '/includes/validasi.php';
 
 // Jika sudah login, redirect ke daftar menu
 if (sudahLogin()) {
@@ -87,7 +87,7 @@ $flash = ambilFlash();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrasi - Menu Kantin</title>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="assets/images/logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -183,13 +183,13 @@ $flash = ambilFlash();
             text-decoration: underline;
         }
     </style>
-    <link rel="stylesheet" href="tema.css?v=<?= (int) @filemtime(__DIR__ . '/tema.css') ?>">
+    <link rel="stylesheet" href="assets/css/tema.css?v=<?= (int) @filemtime(__DIR__ . '/assets/css/tema.css') ?>">
 </head>
 <body class="auth">
     <aside class="auth-hero">
-        <img src="images/logo.png" alt="Logo Menu Kantin" class="auth-logo">
-        <div class="auth-tile t1"><img src="images/nasi_goreng.png" alt=""></div>
-        <div class="auth-tile t2"><img src="images/teh_tarik.png" alt=""></div>
+        <img src="assets/images/logo.png" alt="Logo Menu Kantin" class="auth-logo">
+        <div class="auth-tile t1"><img src="assets/images/nasi_goreng.png" alt=""></div>
+        <div class="auth-tile t2"><img src="assets/images/teh_tarik.png" alt=""></div>
         <div>
             <h2>Tuntaskan rasa laparmu.</h2>
             <p>Pilih menu favorit, pesan dari mana saja, lalu ambil saat sudah siap.</p>

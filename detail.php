@@ -4,9 +4,9 @@
  * Halaman detail menu - pelanggan bisa lihat detail lengkap setiap menu
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
-require_once 'fungsi_pesanan.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
+require_once __DIR__ . '/includes/fungsi_pesanan.php';
 
 // Wajib login untuk mengakses halaman ini
 wajibLogin();
@@ -55,12 +55,12 @@ $label_kategori = ['Makanan' => 'Makanan', 'Minum' => 'Minuman', 'Camilan' => 'C
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($menu['nama_menu']) ?> - Menu Kantin</title>
-    <link rel="icon" href="images/logo.png">
-    <link rel="stylesheet" href="detail.css?v=<?= (int) @filemtime(__DIR__ . '/detail.css') ?>">
-    <link rel="stylesheet" href="keranjang.css?v=<?= (int) @filemtime(__DIR__ . '/keranjang.css') ?>">
+    <link rel="icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="assets/css/detail.css?v=<?= (int) @filemtime(__DIR__ . '/assets/css/detail.css') ?>">
+    <link rel="stylesheet" href="assets/css/keranjang.css?v=<?= (int) @filemtime(__DIR__ . '/assets/css/keranjang.css') ?>">
 </head>
 <body>
-    <?php $nb_aktif = 'beranda'; include __DIR__ . '/komponen_navbar.php'; ?>
+    <?php $nb_aktif = 'beranda'; include __DIR__ . '/includes/komponen/komponen_navbar.php'; ?>
 
     <main class="dt-wrap">
         <a href="daftar.php" class="dt-kembali">&lsaquo; Kembali ke daftar menu</a>
@@ -73,7 +73,7 @@ $label_kategori = ['Makanan' => 'Makanan', 'Minum' => 'Minuman', 'Camilan' => 'C
             <div class="dt-foto">
                 <img src="<?= e(ambilGambarMenu($menu['id'], $menu['kategori'], $menu['gambar'] ?? null)) ?>"
                      alt="<?= e($menu['nama_menu']) ?>"
-                     onerror="this.onerror=null;this.src='images/nasi_goreng.png';">
+                     onerror="this.onerror=null;this.src='assets/images/nasi_goreng.png';">
                 <span class="dt-status <?= $bisa_dipesan ? '' : 'habis' ?>"><?= $bisa_dipesan ? 'Tersedia' : 'Habis' ?></span>
             </div>
 
@@ -115,6 +115,6 @@ $label_kategori = ['Makanan' => 'Makanan', 'Minum' => 'Minuman', 'Camilan' => 'C
         </article>
     </main>
 
-    <?php include __DIR__ . '/keranjang_ui.php'; ?>
+    <?php include __DIR__ . '/includes/komponen/keranjang_ui.php'; ?>
 </body>
 </html>

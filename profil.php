@@ -6,9 +6,9 @@
  * - Dapat diubah: foto profil, username, bio
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
-require_once 'fungsi_profil.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
+require_once __DIR__ . '/includes/fungsi_profil.php';
 
 wajibLogin();
 
@@ -115,7 +115,7 @@ $inisial = mb_strtoupper(mb_substr($pengguna['nama'], 0, 1));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Pengguna - Menu Kantin</title>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="assets/images/logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #edf5f0 0%, #dff2e8 100%); color: #1a1a1a; min-height: 100vh; }
@@ -157,7 +157,7 @@ $inisial = mb_strtoupper(mb_substr($pengguna['nama'], 0, 1));
     </style>
 </head>
 <body>
-    <?php $nb_aktif = 'akun'; include __DIR__ . '/komponen_navbar.php'; ?>
+    <?php $nb_aktif = 'akun'; include __DIR__ . '/includes/komponen/komponen_navbar.php'; ?>
 
     <div class="container">
         <h1>Profil Pengguna</h1>

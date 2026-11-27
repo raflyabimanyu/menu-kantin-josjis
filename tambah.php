@@ -4,9 +4,9 @@
  * Halaman untuk menambah menu baru (HANYA admin)
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
-require_once 'validasi.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
+require_once __DIR__ . '/includes/validasi.php';
 
 // Wajib login DAN wajib peran admin
 wajibLogin();
@@ -103,9 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errors['gambar'] = 'Ukuran gambar terlalu besar (maksimal 2 MB).';
             }
             
-            // Jika lolos validasi, pindahkan ke folder images/
+            // Jika lolos validasi, pindahkan ke folder assets/images/
             if (empty($errors)) {
-                $upload_dir = __DIR__ . '/images/';
+                $upload_dir = __DIR__ . '/assets/images/';
                 
                 // Buat nama file unik: nama_menu_timestamp.ext
                 // Ekstensi ditentukan dari MIME hasil deteksi server, BUKAN dari nama file kiriman pengguna
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $target_path = $upload_dir . $nama_file_gambar;
                 
                 if (!move_uploaded_file($file['tmp_name'], $target_path)) {
-                    $errors['gambar'] = 'Gagal menyimpan gambar. Pastikan folder images/ bisa ditulis.';
+                    $errors['gambar'] = 'Gagal menyimpan gambar. Pastikan folder assets/images/ bisa ditulis.';
                     $nama_file_gambar = null;
                 }
             }
@@ -174,8 +174,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors['umum'] = 'Terjadi kesalahan saat menyimpan. Silakan coba lagi.';
             
             // Hapus file yang sudah diupload jika database gagal
-            if ($nama_file_gambar && file_exists(__DIR__ . '/images/' . $nama_file_gambar)) {
-                unlink(__DIR__ . '/images/' . $nama_file_gambar);
+            if ($nama_file_gambar && file_exists(__DIR__ . '/assets/images/' . $nama_file_gambar)) {
+                unlink(__DIR__ . '/assets/images/' . $nama_file_gambar);
             }
         }
     }
@@ -190,7 +190,7 @@ $flash = ambilFlash();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Menu - Menu Kantin</title>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="assets/images/logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -404,7 +404,7 @@ $flash = ambilFlash();
 </head>
 <body>
     <!-- Navigation -->
-    <?php $nb_aktif = 'beranda'; include __DIR__ . '/komponen_navbar.php'; ?>
+    <?php $nb_aktif = 'beranda'; include __DIR__ . '/includes/komponen/komponen_navbar.php'; ?>
 
     <!-- Main Content -->
     <div class="container">

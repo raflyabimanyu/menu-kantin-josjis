@@ -5,9 +5,9 @@
  * Hanya menerima POST dari pemilik pesanan.
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
-require_once 'fungsi_pesanan.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
+require_once __DIR__ . '/includes/fungsi_pesanan.php';
 
 wajibLogin();
 wajibPeran('anggota');

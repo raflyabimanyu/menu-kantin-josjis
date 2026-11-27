@@ -6,7 +6,7 @@
  * Data dibaca dari SESSION (tanpa query database di setiap halaman).
  */
 
-require_once __DIR__ . '/fungsi_profil.php';
+require_once __DIR__ . '/../fungsi_profil.php';
 
 if (sudahLogin()):
     $pm_nama = (string) ($_SESSION['nama'] ?? '');
@@ -15,7 +15,7 @@ if (sudahLogin()):
     $pm_foto = urlFotoProfil($_SESSION['foto_profil'] ?? null);
     $pm_inisial = mb_strtoupper(mb_substr($pm_nama !== '' ? $pm_nama : $pm_username, 0, 1));
 ?>
-<link rel="stylesheet" href="profil_menu.css?v=<?= (int) @filemtime(__DIR__ . '/profil_menu.css') ?>">
+<link rel="stylesheet" href="assets/css/profil_menu.css?v=<?= (int) @filemtime(__DIR__ . '/../../assets/css/profil_menu.css') ?>">
 <div class="pm" id="pmRoot">
     <button type="button" class="pm-trigger" id="pmTrigger" aria-haspopup="menu" aria-expanded="false"
             aria-controls="pmMenu" aria-label="Menu akun <?= e($pm_nama) ?>">
@@ -71,5 +71,5 @@ if (sudahLogin()):
         </form>
     </div>
 </div>
-<script src="profil_menu.js?v=<?= (int) @filemtime(__DIR__ . '/profil_menu.js') ?>" defer></script>
+<script src="assets/js/profil_menu.js?v=<?= (int) @filemtime(__DIR__ . '/../../assets/js/profil_menu.js') ?>" defer></script>
 <?php endif; ?>

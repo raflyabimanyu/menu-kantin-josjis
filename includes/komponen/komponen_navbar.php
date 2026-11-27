@@ -7,10 +7,10 @@
 $nb_aktif = $nb_aktif ?? '';
 $nb_admin = ($_SESSION['peran'] ?? '') === 'admin';
 ?>
-<link rel="stylesheet" href="tema.css?v=<?= (int) @filemtime(__DIR__ . '/tema.css') ?>">
+<link rel="stylesheet" href="assets/css/tema.css?v=<?= (int) @filemtime(__DIR__ . '/../../assets/css/tema.css') ?>">
 <header class="nb-wrap">
     <nav class="nb" aria-label="Navigasi utama">
-        <a href="daftar.php" class="nb-logo"><img src="images/logo.png" alt="Logo Menu Kantin"></a>
+        <a href="daftar.php" class="nb-logo"><img src="assets/images/logo.png" alt="Logo Menu Kantin"></a>
 
         <ul class="nb-tabs">
             <li>

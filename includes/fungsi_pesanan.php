@@ -201,8 +201,8 @@ function hapusPesanan(mysqli $db, int $penggunaId, int $pesananId): void
 }
 
 /**
- * HTML kontrol jumlah (- 0 +). Markup SAMA dengan yang dibuat keranjang.js untuk baris overlay;
- * keranjang.js yang mengisi angka dan menghidupkan tombolnya.
+ * HTML kontrol jumlah (- 0 +). Markup SAMA dengan yang dibuat assets/js/keranjang.js untuk baris overlay;
+ * assets/js/keranjang.js yang mengisi angka dan menghidupkan tombolnya.
  */
 function htmlKontrolJumlah(int $menuId, string $namaMenu): string
 {
@@ -269,9 +269,9 @@ function sesuaikanStok(mysqli $db, int $menuId, int $delta, ?string $deskripsi =
  * (Dipindahkan ke sini agar tidak dideklarasikan ulang di setiap halaman.)
  */
 function ambilGambarMenu($menu_id, $kategori, $gambar_db = null) {
-    // 1) Jika admin upload gambar, gunakan itu (folder images/)
+    // 1) Jika admin upload gambar, gunakan itu (folder assets/images/)
     if (!empty($gambar_db)) {
-        return 'images/' . $gambar_db;
+        return 'assets/images/' . $gambar_db;
     }
     
     // 2) Mapping default per ID menu
@@ -287,7 +287,7 @@ function ambilGambarMenu($menu_id, $kategori, $gambar_db = null) {
     ];
     
     if (isset($gambar_map[$menu_id])) {
-        return 'images/' . $gambar_map[$menu_id];
+        return 'assets/images/' . $gambar_map[$menu_id];
     }
     
     // 3) Fallback: gunakan kategori
@@ -299,5 +299,5 @@ function ambilGambarMenu($menu_id, $kategori, $gambar_db = null) {
         'Lainnya' => 'nasi_goreng.png'
     ];
     
-    return 'images/' . ($kategori_map[$kategori] ?? 'nasi_goreng.png');
+    return 'assets/images/' . ($kategori_map[$kategori] ?? 'nasi_goreng.png');
 }

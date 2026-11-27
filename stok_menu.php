@@ -5,9 +5,9 @@
  * Hanya admin, hanya POST, token CSRF wajib. Stok tidak bisa kurang dari 0.
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
-require_once 'fungsi_pesanan.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
+require_once __DIR__ . '/includes/fungsi_pesanan.php';
 
 wajibPeran('admin');
 

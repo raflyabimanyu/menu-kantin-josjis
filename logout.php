@@ -6,7 +6,7 @@
  * mengeluarkan pengguna lewat tautan/gambar tersembunyi (logout-CSRF).
  */
 
-require_once 'sesi.php';
+require_once __DIR__ . '/includes/sesi.php';
 
 $csrf_kirim = $_POST['csrf'] ?? '';
 $csrf_valid = $_SERVER['REQUEST_METHOD'] === 'POST'

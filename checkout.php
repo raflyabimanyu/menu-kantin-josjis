@@ -9,10 +9,10 @@
  * Harga SELALU dibaca dari database; angka dari browser tidak dipercaya.
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
-require_once 'validasi.php';
-require_once 'fungsi_pesanan.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
+require_once __DIR__ . '/includes/validasi.php';
+require_once __DIR__ . '/includes/fungsi_pesanan.php';
 
 wajibLogin();
 wajibPeran('anggota');
@@ -148,7 +148,7 @@ $jumlah_item = array_sum($data['items']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pembayaran - Menu Kantin</title>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="assets/images/logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #edf5f0 0%, #dff2e8 100%); color: #1a1a1a; min-height: 100vh; }
@@ -184,7 +184,7 @@ $jumlah_item = array_sum($data['items']);
     </style>
 </head>
 <body>
-    <?php $nb_aktif = 'pesanan'; include __DIR__ . '/komponen_navbar.php'; ?>
+    <?php $nb_aktif = 'pesanan'; include __DIR__ . '/includes/komponen/komponen_navbar.php'; ?>
 
     <div class="container">
         <div class="langkah"><span>1. Pilih menu</span> &rsaquo; <span class="aktif">2. Pembayaran</span> &rsaquo; <span>3. Selesai</span></div>

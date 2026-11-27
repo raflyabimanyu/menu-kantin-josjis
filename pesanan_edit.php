@@ -4,10 +4,10 @@
  * Mengubah jumlah / catatan pesanan (UPDATE) - hanya pemilik pesanan.
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
-require_once 'validasi.php';
-require_once 'fungsi_pesanan.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
+require_once __DIR__ . '/includes/validasi.php';
+require_once __DIR__ . '/includes/fungsi_pesanan.php';
 
 wajibLogin();
 wajibPeran('anggota');
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah Pesanan - Menu Kantin</title>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="assets/images/logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; }
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-    <?php $nb_aktif = 'pesanan'; include __DIR__ . '/komponen_navbar.php'; ?>
+    <?php $nb_aktif = 'pesanan'; include __DIR__ . '/includes/komponen/komponen_navbar.php'; ?>
 
     <div class="container">
         <div class="card">

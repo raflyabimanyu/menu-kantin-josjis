@@ -29,6 +29,31 @@ Aplikasi web pemesanan makanan dan manajemen stok kantin berbasis **PHP Native**
 
 ---
 
+## Struktur Folder
+
+```text
+menu-kantin-josjis/
+├── login.php, registrasi.php, logout.php      # Autentikasi
+├── daftar.php, detail.php                      # Halaman menu (beranda & detail)
+├── tambah.php, edit.php, hapus_menu.php, stok_menu.php   # Manajemen menu (admin)
+├── checkout.php, pesanan.php, pesanan_edit.php, pesanan_hapus.php   # Pesanan
+├── profil.php, setup_db.php                    # Profil & perbaikan database
+├── includes/                                   # Kode internal (diblokir dari akses browser)
+│   ├── koneksi.php, sesi.php, validasi.php
+│   ├── fungsi_pesanan.php, fungsi_profil.php
+│   └── komponen/                               # Potongan UI: navbar, menu profil, keranjang
+├── assets/
+│   ├── css/                                    # tema, beranda, detail, keranjang, profil_menu
+│   ├── js/                                     # keranjang.js, profil_menu.js
+│   └── images/                                 # logo & gambar menu
+├── uploads/profil/                             # Foto profil unggahan pengguna
+├── database/app.sql                            # Skema + data awal
+├── .env / .env.example                         # Konfigurasi database
+└── .htaccess
+```
+
+---
+
 ## Cara Menjalankan (Lokal / XAMPP)
 
 ### 1. Persiapan Server
@@ -42,13 +67,11 @@ DB_HOST=localhost
 DB_USER=root
 DB_PASS=
 DB_NAME=menu_kantin
-```
-> **Catatan Produksi:** Jika di-deploy ke server publik, pindahkan file `.env` ke luar folder web publik dan arahkan melalui variabel lingkungan `APP_ENV_FILE`.
 
 ### 3. Setup Database
 Buka **phpMyAdmin** di `http://localhost/phpmyadmin/`, lalu pilih salah satu langkah berikut:
-* **Instalasi Baru:** Buat database atau langsung *import* file `app.sql` (database `menu_kantin` akan dibuat secara otomatis).
-* **Update dari Database Lama (Jangan import `app.sql`):**
+* **Instalasi Baru:** Buat database atau langsung *import* file `database/app.sql` (database `menu_kantin` akan dibuat secara otomatis).
+* **Update dari Database Lama (Jangan import `database/app.sql`):**
   1. Login ke aplikasi sebagai **Admin**.
   2. Buka alamat `http://localhost/<nama_folder>/setup_db.php`.
   3. Klik **"Terapkan Perbaikan"**. Skrip ini aman dijalankan berulang kali untuk menambah kolom/tabel yang kurang tanpa menghapus data lama (tabel pesanan lama yang strukturnya berbeda akan di-*rename* menjadi `pesanan_lama_...`).
@@ -68,8 +91,8 @@ http://localhost/<nama_folder>/login.php
 | **Admin**     |   `admin`   | `admin123`  |
 | **Pelanggan** |   `rina`    | `rina123`   |
 
-> **Troubleshooting Login:** Jika password di atas ditolak karena perbedaan *hash* pada database lama, jalankan query `UPDATE pengguna SET hash_sandi = '<hash_baru>'` melalui phpMyAdmin, atau *import* ulang `app.sql` untuk instalasi bersih.
+> **Troubleshooting Login:** Jika password di atas ditolak karena perbedaan *hash* pada database lama, jalankan query `UPDATE pengguna SET hash_sandi = '<hash_baru>'` melalui phpMyAdmin, atau *import* ulang `database/app.sql` untuk instalasi bersih.
 
 ---
 
-*Menu Kantin Josjis — Dibuat untuk Tugas Pemrograman Web I*
+*Kantin Josjis — Tugas Pemrograman Web I*

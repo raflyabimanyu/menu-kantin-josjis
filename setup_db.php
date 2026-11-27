@@ -9,8 +9,8 @@
  * Alur: halaman menampilkan RENCANA dulu; perubahan baru dijalankan setelah tombol ditekan.
  */
 
-require_once 'koneksi.php';
-require_once 'sesi.php';
+require_once __DIR__ . '/includes/koneksi.php';
+require_once __DIR__ . '/includes/sesi.php';
 
 // Proteksi akses: wajib login DAN berperan admin sebelum kode apa pun di bawah dijalankan
 wajibLogin();
@@ -213,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $error_rencana === null) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setup Database - Menu Kantin</title>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="assets/images/logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8f9fa; color: #333; }

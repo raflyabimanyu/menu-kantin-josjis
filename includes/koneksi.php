@@ -38,7 +38,7 @@ function bacaFileEnv(string $path): array
 }
 
 try {
-    $path_env = getenv('APP_ENV_FILE') ?: __DIR__ . '/.env';
+    $path_env = getenv('APP_ENV_FILE') ?: __DIR__ . '/../.env';
     $env = bacaFileEnv($path_env);
 
     // Nilai dari .env diutamakan; bila tidak ada, boleh dari variabel lingkungan server
